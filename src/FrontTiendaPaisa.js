@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function FrontTiendaPaisa() {
+function App() {
   const [items, setItems] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -63,6 +63,6 @@ function FrontTiendaPaisa() {
   );
 }
 
-export default FrontTiendaPaisa;
+export default App;
 ;
 
