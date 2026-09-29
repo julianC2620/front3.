@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { API_URL } from "./config";   
+import { API_URL } from "./config";   // aquí tienes la URL pública
 
 function FrontTiendaPaisa() {
   const [items, setItems] = useState([]);
@@ -10,12 +10,12 @@ function FrontTiendaPaisa() {
   const [tags, setTags] = useState("");
 
   const fetchItems = async () => {
-    const res = await axios.get("http://127.0.0.1:8000/items/");
+    const res = await axios.get(`${API_URL}/items/`);
     setItems(res.data);
   };
 
   const addItem = async () => {
-    await axios.post("http://127.0.0.1:8000/items/", {
+    await axios.post(`${API_URL}/items/`, {
       name,
       description,
       price: parseFloat(price),
@@ -25,12 +25,12 @@ function FrontTiendaPaisa() {
   };
 
   const deleteItem = async (id) => {
-    await axios.delete(`http://127.0.0.1:8000/items/${id}`);
+    await axios.delete(`${API_URL}/items/${id}`);
     fetchItems();
   };
 
   const recommendItems = async (tag) => {
-    const res = await axios.get(`http://127.0.0.1:8000/recommend/${tag}`);
+    const res = await axios.get(`${API_URL}/recommend/${tag}`);
     alert("Recomendaciones: " + res.data.recommendations.join(", "));
   };
 
@@ -65,5 +65,3 @@ function FrontTiendaPaisa() {
 }
 
 export default FrontTiendaPaisa;
-;
-
