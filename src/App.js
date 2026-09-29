@@ -6,6 +6,5 @@ function App() {
   return <FrontTiendaPaisa />;
 }
 
-export default FrontTiendaPaisa;
-
+export default App;
 
